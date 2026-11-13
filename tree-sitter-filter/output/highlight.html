@@ -1,0 +1,41 @@
+
+<!doctype HTML>
+<head>
+  <title>Tree-sitter Highlighting</title>
+  <style>
+    body {
+      font-family: monospace
+    }
+    .line-number {
+      user-select: none;
+      text-align: right;
+      color: rgba(27,31,35,.3);
+      padding: 0 10px;
+    }
+    .line {
+      white-space: pre;
+    }
+  </style>
+  <style>
+    .constant.builtin { color: #a24a00; }
+    .keyword { color: #6f42c1; }
+    .number { color: #005cc5; }
+    .operator { color: #d73a49; }
+    .property { color: #006b73; }
+    .string { color: #176b24; }
+  </style>
+
+</head>
+<body>
+
+<table>
+<tr><td class=line-number>1</td><td class=line><span style='color: #6f42c1'>not</span> <span style='color: #006b73'>archived</span> <span style='color: #d73a49'>=</span> <span style='color: #a24a00'>true</span> <span style='color: #6f42c1'>and</span> (<span style='color: #006b73'>status</span> <span style='color: #6f42c1'>in</span> (<span style='color: #176b24'>&quot;open&quot;</span>, <span style='color: #176b24'>&quot;pending&quot;</span>, <span style='color: #176b24'>&quot;closed&quot;</span>) <span style='color: #6f42c1'>or</span> <span style='color: #006b73'>title</span> <span style='color: #6f42c1'>contains</span> <span style='color: #176b24'>&quot;invoice&quot;</span>)
+</td></tr>
+<tr><td class=line-number>2</td><td class=line><span style='color: #6f42c1'>and</span> <span style='color: #006b73'>priority</span> <span style='color: #d73a49'>&gt;=</span> <span style='color: #005cc5'>2.5</span> <span style='color: #6f42c1'>and</span> <span style='color: #006b73'>priority</span> <span style='color: #d73a49'>&lt;=</span> <span style='color: #005cc5'>10</span> <span style='color: #6f42c1'>and</span> <span style='color: #006b73'>score</span> <span style='color: #d73a49'>&gt;</span> <span style='color: #005cc5'>0</span> <span style='color: #6f42c1'>and</span> <span style='color: #006b73'>score</span> <span style='color: #d73a49'>&lt;</span> <span style='color: #005cc5'>100</span>
+</td></tr>
+<tr><td class=line-number>3</td><td class=line><span style='color: #6f42c1'>and</span> <span style='color: #006b73'>owner</span> <span style='color: #d73a49'>!=</span> <span style='color: #176b24'>&quot;guest&quot;</span> <span style='color: #6f42c1'>and</span> <span style='color: #006b73'>active</span> <span style='color: #d73a49'>=</span> <span style='color: #a24a00'>false</span>
+</td></tr>
+</table>
+
+</body>
+

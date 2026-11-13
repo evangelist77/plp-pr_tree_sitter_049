@@ -10,7 +10,8 @@
         "filter"
       ],
       "injection-regex": "^filter$",
-      "class-name": "TreeSitterFilter"
+      "class-name": "TreeSitterFilter",
+      "highlights": "queries/highlights.scm"
     }
   ],
   "metadata": {
