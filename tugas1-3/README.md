@@ -43,7 +43,7 @@ python tugas1-3/jelajah.py /Users/hafizfs/Documents/plp-pr_tree_sitter_049-bahan
 
 `jelajah(node, kedalaman=0, field=None)` mencetak node bernama dengan dua spasi per tingkat, field bila tersedia, dan posisi `[baris:kolom]`. Baris dimulai dari 1; kolom adalah offset byte UTF-8 mulai dari 0. Anak ditelusuri rekursif melalui `children` dan difilter `is_named`; `field_name_for_child(i)` menggunakan indeks asli sehingga token anonim tidak menggeser label field.
 
-`output/t2.txt` merupakan hasil aktual Click `src/click/core.py` (4018 baris), dengan asal, SHA, lisensi, dan pemeriksaan sampel di [bahan uji](../docs/bahan-uji.md). Lima tes Tugas 1–2 lulus, termasuk output persis `x = 1`, kolom UTF-8, CLI, kegagalan membaca path, dan import tanpa output.
+`output/t2.txt` merupakan hasil aktual Click `src/click/core.py` (4018 baris), dengan asal, SHA, lisensi, dan pemeriksaan sampel di [bahan uji](../docs/bahan-uji.md). Pada akhir Tugas 2, lima tes Tugas 1–2 lulus, termasuk output persis `x = 1`, kolom UTF-8, CLI, kegagalan membaca path, dan import tanpa output.
 
 - [x] Traversal rekursif, indentasi, posisi dan field teruji.
 - [x] File nyata minimal 100 baris dan hasil output tersedia.
@@ -76,7 +76,7 @@ Pembanding manual berikut dibuat AI dengan membaca [fixture](contoh/query.py), b
 | 8 | `from . import lokal` | 1 modul: `.` | `baris 8: .` |
 | 9 | `from ..paket import nama` | 1 modul: `..paket` | `baris 9: ..paket` |
 
-Total: 2 fungsi, 5 parameter, 1 panggilan print langsung, dan 5 modul. Ketiga perintah beserta keluaran aktual tersimpan di [output/t3.txt](output/t3.txt). Fixture adalah masukan parser dan tidak dijalankan: `obj` sengaja tidak didefinisikan dan import relatif hanya untuk query. Sembilan tes Tugas 1–3 lulus; kasus tambahan menguji separator `*`, nama fungsi UTF-8, error CLI, dan import skrip tanpa output.
+Total: 2 fungsi, 5 parameter, 1 panggilan print langsung, dan 5 modul. Ketiga perintah beserta keluaran aktual tersimpan di [output/t3.txt](output/t3.txt). Fixture adalah masukan parser dan tidak dijalankan: `obj` sengaja tidak didefinisikan dan import relatif hanya untuk query. Pada akhir Tugas 3, sembilan tes Tugas 1–3 lulus; kasus tambahan menguji separator `*`, nama fungsi UTF-8, error CLI, dan import skrip tanpa output.
 
 - [x] Tiga query wajib dan pembanding setiap item tersedia.
 - [x] Alias, import relatif, separator parameter, dan pengecualian string/attribute teruji.
@@ -93,4 +93,4 @@ export PATH="$PWD/.venv/tree-sitter-cli/node_modules/.bin:$PATH"
 tree-sitter --version
 ```
 
-Generator CLI belum diuji pada Tugas 1; Tugas 4 akan menguji generate dan corpus dengan CLI ini.
+Verifikasi akhir Tugas 7: seluruh 15 tes Python lulus; generator CLI dan 17 corpus grammar sudah diuji pada Tugas 4–5 dan diulang pada Tugas 7. Setup virtualenv dari checkout bersih ada di [README root](../README.md#setup-dari-checkout-bersih). Semua perintah Tugas 1–3 di atas dijalankan dari root, dengan virtualenv dan PATH CLI aktif.

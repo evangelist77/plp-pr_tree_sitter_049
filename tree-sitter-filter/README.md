@@ -2,7 +2,7 @@
 
 Proyek ini sudah diinisialisasi sekali dengan `tree-sitter init` (CLI 0.25.10), nama bahasa `filter`, dan ekstensi `.filter`. Folder `test/corpus/` dan `queries/` yang telah disediakan tetap dipakai.
 
-Dari folder ini, dengan CLI tersedia di `PATH`:
+Siapkan Python/dependensi dan CLI lokal mengikuti [README root](../README.md#setup-dari-checkout-bersih). Dari folder `tree-sitter-filter/`, dengan CLI tersedia di `PATH`:
 
 ```sh
 tree-sitter generate
@@ -48,3 +48,12 @@ tree-sitter test
 ```
 
 Buka `output/highlight.html` di browser; `output/captures.txt` menunjukkan token dan rentangnya. Hasil Tugas 5: 38 capture, semua enam kategori berwarna, dan 17/17 corpus tetap lulus. Konfigurasi tersebut berada di `.venv/` yang diabaikan Git, tidak menimpa tema atau parser directory global. Pembuatan konfigurasi menolak menimpa file lokal yang sudah ada; gunakan konfigurasi yang ada atau pilih nama lain.
+
+
+## Pengulangan dan bukti akhir
+
+Potongan `config.open('x')` di atas khusus pembuatan pertama: bila `.venv/filter-cli.json` sudah ada, **lewati blok Python** dan langsung jalankan perintah `dump-languages`, parse, query, highlight, dan test dengan config tersebut. Pada lingkungan verifikasi Task 7, file ini sudah tersedia dan dipakai tanpa ditimpa. Bila pindah checkout, buat konfigurasi dengan nama lokal baru (ubah path pada blok dan seluruh `--config-path`), sehingga direktori penemuan sesuai dan konfigurasi lama tetap aman. Tidak perlu mengulang `tree-sitter init`.
+
+Verifikasi ulang 13 November 2026: generate berhasil, 17/17 corpus lulus, parse tidak berisi ERROR/MISSING, query menghasilkan 38 capture, HTML dan capture identik byte demi byte dengan bukti tersimpan. Tes corpus sebelumnya pernah memberi peringatan slow parse rate untuk input pendek; hasilnya tetap lulus, bukan bukti kegagalan grammar atau regresi performa.
+
+Screenshot browser nyata sudah diambil dan direview pada Tugas 5: `/Users/hafizfs/Documents/plp-pr_tree_sitter_049-laporan/bukti/tugas-5-highlight-20261113-102832.png`. Enam kategori terlihat berbeda warna. Bukti ini di luar repo dan tidak menggantikan pemeriksaan Playground/pemahaman pribadi pengguna yang masih terbuka.

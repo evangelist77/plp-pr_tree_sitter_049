@@ -3,12 +3,12 @@
 Dari root repo, gunakan Python 3.10+ (pengujian aktual Python 3.12.15):
 
 ```bash
-python -m venv .venv
 source .venv/bin/activate
-python -m pip install -r requirements.txt
 python cek/cek.py cek/uji
 python -m unittest discover -s tests -v
 ```
+
+Buat virtualenv dan pasang dependensi lebih dahulu memakai [setup root](../README.md#setup-dari-checkout-bersih); jangan membuat ulang virtualenv yang sudah aktif. Verifikasi akhir Tugas 7 mengulang CLI fixture/repo dan seluruh **15 tes Python**, semuanya lulus.
 
 Dependensi mengikuti `requirements.txt`: binding dan grammar Tree-sitter 0.25.x.
 API menggunakan `Parser(Language(...))`, `Query`, dan `QueryCursor`.

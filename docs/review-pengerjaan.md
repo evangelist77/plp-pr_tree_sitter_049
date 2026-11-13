@@ -253,3 +253,66 @@ None.
 - **Out-of-Scope Observations:** None. Coordinator-appended initial review text was treated as historical review documentation.
 - **Fix round:** All findings addressed, no new Critical/Important breakage.
 - **Checks and limits:** Read the supplied diff once, brief, appended report, exact regression/suite logs, and current changed source lines. No tests rerun; no product/index/branch changes. Only this report was written; no additional risk identified within the scoped delta.
+
+
+## Pemetaan rubrik dan verifikasi Tugas 7
+
+Bagian ini disiapkan pelaksana dokumentasi pada 13 November 2026 untuk direview; tidak menggantikan atau mengubah review independen T1–6 di atas. Bobot disalin dari materi asli, **bukan pemberian nilai**.
+
+| Komponen | Bobot | Bukti tersedia | Celah/keterangan |
+| --- | ---: | --- | --- |
+| Tugas 1 | 10 | [Prediksi AI/perbandingan](../tugas1-3/perkiraan.md), [pohon aktual](../tugas1-3/output/t1.txt), anonim dan ERROR; tes lulus | Perkiraan tulisan tangan dan Playground/pemahaman pribadi pengguna belum ada |
+| Tugas 2 | 15 | [Penjelajah](../tugas1-3/jelajah.py), [output 15307 baris](../tugas1-3/output/t2.txt), [Click core.py 4018 baris pada SHA tetap](bahan-uji.md), sampel field/posisi/indentasi dan tes | Perbandingan Playground oleh pengguna pending; belum ditemukan kesalahan implementasi AI |
+| Tugas 3 | 15 | [Tiga query, tabel per-item sumber dan batasnya](../tugas1-3/README.md#tugas-3--tiga-query-python), [output](../tugas1-3/output/t3.txt): 2 fungsi, 5 parameter, 1 print, 5 modul | Pembanding sumber dibuat AI; validasi/pemahaman pengguna pending; belum ditemukan kesalahan implementasi AI |
+| Tugas 4 | 20 | [17 corpus](../tree-sitter-filter/test/corpus/dasar.txt), generate/test lulus, prioritas dan in/contains | Koreksi expected recovery tree nyata dicatat; bukan perbaikan grammar produksi |
+| Tugas 5 | 10 | [38 capture](../tree-sitter-filter/output/captures.txt), [HTML](../tree-sitter-filter/output/highlight.html), screenshot enam warna yang dilihat reviewer T5 | Path screenshot eksternal di bawah; konfigurasi lokal diperlukan untuk discovery |
+| Tugas 6 | 20 | [Empat laporan fixture](../cek/output/uji.txt), [136 laporan Click](../cek/output/repo-nyata.txt), [dua file acak dan pembanding independen](../cek/verifikasi-manual.md), tes ERROR/MISSING/30–31/I/O/UTF-8 | Pemeriksaan sumber oleh AI; bukan kerja manual pengguna. Kedua bug nyata telah diperbaiki dan direview |
+| Laporan dan catatan AI | 10 | [Catatan per tugas](catatan-ai.md), riwayat review lengkap di atas, output/tes serta koreksi nyata T1/T4/T5/T6 | Syarat minimal satu kesalahan AI per tugas belum terpenuhi T2/T3. DOCX Task 8 belum dibuat pada verifikasi T7; PDF, pemeriksaan pengguna, dan push dokumen manual pending |
+
+Screenshot aktual: `/Users/hafizfs/Documents/plp-pr_tree_sitter_049-laporan/bukti/tugas-5-highlight-20261113-102832.png`. Dokumen yang direncanakan: `/Users/hafizfs/Documents/plp-pr_tree_sitter_049-laporan/laporan.docx` (maks. 3 halaman) dan `/Users/hafizfs/Documents/plp-pr_tree_sitter_049-laporan/proposal-draf.docx` (maks. 1 halaman). Materi meminta PDF; DOCX tidak menutup persyaratan itu. Pengayaan tidak dikerjakan.
+
+Verifikasi ulang T7: `python scripts/cek_setup.py`, seluruh 15 tes Python, perintah T1–3, generate/17 corpus, discovery/parse/query/highlight, CLI fixture dan Click semuanya status 0. Capture/HTML, traversal Click dan output checker Click dibandingkan dengan artefak tersimpan menggunakan `cmp` dan identik. Output corpus historis T4/T5 memiliki warning slow parse rate yang tidak dihapus; verifikasi T7 saat ini tidak menampilkannya. Bukti lengkap perintah/keluaran tersedia di laporan kerja lokal `.superpowers/sdd/2026-11-13-tugas-tree-sitter/task-7-report.md` (direktori `.superpowers` diabaikan Git; ringkasan bukti yang dikumpulkan tetap ada dalam dokumentasi ini).
+
+Batas penutupan: pelaksana tidak memberi nilai, mengklaim demo/pemahaman pengguna, membuat bukti tulisan tangan, atau mengisi cerita kesalahan rekaan. Koordinator masih mengurus review T7 serta integrasi commit/push; SHA lokal/remote yang sama hanya dapat dicatat setelah benar-benar diperiksa. Dokumen eksternal tidak masuk staging.
+
+
+## Task 7 review dokumentasi
+
+### Spec Compliance
+
+- ✅ Spec compliant for the Task 7 documentation delta. Every requested document has a corresponding hunk: `README.md:3`, `tugas1-3/README.md:46`, `tree-sitter-filter/README.md:5`, `cek/README.md:11`, `docs/bahan-uji.md:1`, `docs/catatan-ai.md:41`, and `docs/review-pengerjaan.md:258`. No application, test, dependency, or optional enrichment change appears in the supplied diff.
+- ✅ Reproduction commands identify root versus grammar working directories (`README.md:7`, `README.md:29`, `README.md:45`), activate the venv, install the pinned local CLI, and document lifecycle-installer recovery (`README.md:10`, `README.md:13`, `README.md:21`). Existing configuration is reused instead of overwritten (`README.md:58`, `tree-sitter-filter/README.md:55`). New-clone instructions pin the actual Click SHA and protect a clone with user changes (`docs/bahan-uji.md:4`, `docs/bahan-uji.md:8`). Actual tool/dependency versions are distinguished from supported version bounds (`README.md:25`).
+- ✅ Evidence and rubric mapping use weights 10/15/15/20/10/20/10, matching `Part 1 - Tree-sitter.md:648`–`:654`; the seven mapping rows at `docs/review-pengerjaan.md:264`–`:270` identify available artifacts and qualifications rather than assigning marks. T2 real-file size/output and T6 two-file sampling are explicit (`docs/bahan-uji.md:45`, `docs/bahan-uji.md:47`). Fixture coverage and actual-repository results are distinguished (`README.md:71`); this review does not promise full rubric credit for the available evidence.
+- ✅ Genuine AI findings are represented accurately: T4 incorrect recovery expectations are expressly not production fixes (`docs/catatan-ai.md:45`–`:47`), agreeing with `task-4-report.md:58`; T5 direct-parent discovery correction (`docs/catatan-ai.md:53`) agrees with `task-5-report.md:26`. The T5 screenshot claim is supported by the independent direct-view record at `task-5-review.md:6`. Missing-script TDD failures are not repackaged as AI mistakes (`docs/catatan-ai.md:10`); the unchanged T6 invalid-byte and PermissionError findings remain in the diff context.
+- ✅ Historical reviewer material is preserved: the sole hunk for `docs/review-pengerjaan.md` appends after the complete existing Task 6 fix-review ending at line 255, with no removal or replacement of previous reviewer content. New implementer-authored mapping is explicitly identified as such at `docs/review-pengerjaan.md:260`.
+- ✅ Open human and format requirements remain honest: missing T2/T3 per-task AI-error evidence (`docs/catatan-ai.md:69`), handwriting/Playground/personal understanding (`docs/catatan-ai.md:70`), external DOCX page limits and pending creation/PDF export/manual push (`README.md:77`–`:82`, `docs/catatan-ai.md:71`). These agree with the original AI requirement at `Part 1 - Tree-sitter.md:642` and PDF deliverables at `:639`–`:640`.
+- ⚠️ Task 7 Step 5 remains coordinator-owned and unverified: `docs/review-pengerjaan.md:276` explicitly defers commit/push and local/remote SHA equality. Do not mark integration or overall submission complete from this approval.
+- ⚠️ Clean-room install, other Python/platform combinations, current external-document existence, and human work cannot be established from this documentation diff. `task-7-report.md` explicitly limits its evidence to the existing macOS/Python 3.12 environment and reports DOCX absence at its verification time; the documents retain that time qualification (`README.md:77`).
+
+### Strengths
+
+- `README.md:29`–`:58` collects the required executable workflow without introducing another setup system. `docs/bahan-uji.md:8` makes external source reproducible, while `docs/bahan-uji.md:47` explains path adjustment and avoids installing the sampled application's dependencies.
+- `docs/review-pengerjaan.md:260`–`:276` keeps independent history, machine evidence, missing human work, and coordinator integration distinguishable. `tugas1-3/README.md:46` and `:79` correctly label older test counts as historical; `:96` provides the final count.
+- `docs/review-pengerjaan.md:274` preserves historical slow-parse warnings and distinguishes the clean current run. These are disclosed prior measurement warnings, not hidden current failures.
+
+### Issues
+
+#### Critical (Must Fix)
+
+- None found in the scoped documentation delta.
+
+#### Important (Should Fix)
+
+- None found in the scoped documentation delta.
+
+#### Minor (Nice to Have)
+
+- None requiring changes. Full clean-room reproduction remains a declared verification limit, not evidence of a documentation failure.
+
+### Assessment
+
+**Task quality:** Approved.
+
+**Reasoning:** The seven-file delta supplies the required reproduction guide and factual evidence map with minimal scope. It preserves prior reviews and expressly leaves unmet AI-note, human-evidence, document-format, and integration requirements open.
+
+**Checks and limits:** Read the supplied complete diff once; obtained line references by parsing its hunk coordinates rather than rereading changed files. Read the task brief, binding constraints, and full Task 7 command transcript. For the named risks of fabricated AI history and inaccurate rubric weights, checked only the original assignment's relevant requirements, T4 recovery-history passage, T5 discovery report, and T5 independent screenshot review. The transcript records 15 passing Python tests, 17 passing corpus cases, setup/T1–3/parse/query/highlight/fixture/Click exit-0 results, byte comparisons, and a two-file independent AST/tokenize check; no unresolved behavior doubt justified rerunning those commands. No suite, browser, clean-room install, network clone, Git command, source/index/HEAD/branch mutation, or subagent was used; only this permitted local review report was written. Remaining submission risks are the explicitly pending evidence, DOCX/PDF work, and coordinator commit/push.
