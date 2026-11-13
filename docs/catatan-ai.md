@@ -45,3 +45,12 @@ Pindahkan ringkasan ke `laporan.pdf` saat pengumpulan. Isi berdasarkan pengalama
 - Verifikasi: fixture menghasilkan `f: 5 parameter`, `kosong: 0 parameter`, satu print langsung pada baris 3, serta modul `os`, `sys`, `pathlib`, `.`, `..paket` pada baris 6–9. Tes tambahan menguji `*` sebagai separator, nama UTF-8, path sumber/pola hilang, pola invalid, pola bukan UTF-8, dan import skrip tanpa output.
 - Kekurangan hasil AI yang benar-benar ditemukan: belum ditemukan kesalahan implementasi pada pemeriksaan ini; tidak mengarang kesalahan untuk memenuhi rubrik. Contoh hitungan `named_child_count` dalam materi tidak cukup untuk `/` dan `*` bernama; implementasi mengecualikannya berdasarkan pohon fixture aktual.
 - Batas: query print bersifat sintaksis dan tidak menyelesaikan binding nama. Fixture hanya diparse, tidak dieksekusi. Docstring sebagai pengayaan tidak dikerjakan; pemeriksaan pribadi pengguna masih terbuka.
+
+## Tugas 6 — checker Python
+
+- Permintaan: CLI komentar TODO/FIXME, fungsi >30 baris termasuk def, dan ERROR/MISSING pertama; uji folder dan repo nyata, lalu sampling dua file.
+- Bantuan AI: checker, lima tes kontrak, tiga fixture, output CLI, README, dan pemeriksaan sumber bernomor serta pembanding AST/tokenize/compile. Tidak mengklaim pekerjaan manual pengguna.
+- Bukti TDD: kelima tes pertama gagal dengan FileNotFoundError sebelum checker ada. Implementasi awal lulus empat tes tetapi tes byte rusak benar-benar menemukan UnicodeDecodeError di predicate `#match?`, sebelum decoding output; input lalu dinormalisasi UTF-8 dengan errors=replace sebelum parse.
+- Verifikasi aktual sesudah perbaikan: `.venv/bin/python -m unittest discover -s tests -v` lulus 14 tes, termasuk sembilan tes T1–3. Fixture menghasilkan empat laporan. Clone Click SHA `e38188e9e205005d5af5f9e59df51904c984586a` menghasilkan 136 laporan.
+- Sampling seed 20261113 dari 91 path terurut memilih `src/click/decorators.py` dan `examples/colors/colors.py`; sumber dibaca penuh oleh AI dan hitungan independen memberi selisih 0 pada ketiga kategori. Rincian ada di `cek/verifikasi-manual.md`. Pengayaan JavaScript tidak dikerjakan.
+- Temuan reviewer T6 yang benar-benar terjadi: validasi folder awal `Path.is_dir()` masih di luar penanganan OSError; PermissionError dapat lolos sebagai traceback. Regresi baru dibuktikan merah (`PermissionError: stat ditolak`), validasi dipindahkan ke try yang sudah ada, lalu tes terfokus dan seluruh 15 tes lulus. Output/format laporan tidak berubah.

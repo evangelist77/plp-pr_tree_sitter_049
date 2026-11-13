@@ -1,0 +1,4 @@
+cek/uji/panjang.py:33: fungsi terlalu_panjang (31 baris)
+cek/uji/rusak.py:1: kesalahan sintaks
+cek/uji/todo.py:2: TODO lengkapi contoh
+cek/uji/todo.py:3: FIXME cek nilai

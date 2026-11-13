@@ -205,3 +205,51 @@ None.
 **Reasoning:** Complete supplied diff implements capture coverage, metadata, local reproducibility, and saved output with minimal source changes. The required screenshot independently confirms real visible category colors; recorded parse/corpus results support unchanged grammar behavior.
 
 **Checks and limits:** Read review package once, inspected named task evidence/config/self-check, and viewed external PNG. No test rerun was needed because no unresolved functional doubt remained. No product, index, HEAD, branch, or global settings edits; only this permitted report was written. Initial report-write command using unavailable `python` failed before writing; shell heredoc succeeded. Global configuration history and integration were not independently audited; no additional implementation risk found.
+
+
+## Task 6 review awal
+
+### Spec Compliance
+
+- ❌ One required I/O path remains unhandled: `cek/cek.py:52` calls `Path.is_dir()` before the `try` at line 58; permission/stat failures can escape instead of producing the CLI's clear controlled diagnostic. Other requested behavior is implemented.
+- ⚠️ Task commit/push remains coordinator work, explicitly excluded from this isolated implementation review. Task 2 SHA agrees with `docs/bahan-uji.md:13`; clone HEAD itself was not rechecked with git under the read-only review instructions.
+
+### Strengths
+
+- `cek/cek.py:12` uses the requested comment predicate; `cek/cek.py:30` pairs each function with its own name and computes the exact inclusive function-definition range, keeping nested functions/methods independent. `tests/test_cek.py:44` distinguishes 30/31 and nested/method ranges.
+- `cek/cek.py:15` traverses all children, including anonymous MISSING nodes, and returns the first recovery node; `tests/test_cek.py:54` verifies genuinely distinct ERROR/MISSING parses and one syntax report. `cek/cek.py:28` normalizes invalid UTF-8 before the predicate, with a regression at `tests/test_cek.py:94`.
+- `cek/cek.py:60` prunes before descent, sorts complete paths, and propagates traversal/read failures; `tests/test_cek.py:64` checks argument/path errors, skipped trees, global path ordering, successful finding exit status, and mocked read/scandir errors. `cek/README.md:31` explicitly documents inclusive length, nested functions, exit codes, replacement decoding and partial output.
+- `cek/verifikasi-manual.md:11` provides reproducible random sampling and independently sourced counts instead of treating CLI output as its own oracle. Review reproduced the 91 candidates, seed 20261113, and selected decorators.py/colors.py; independent AST/tokenize inspection confirmed 35/1 functions, 7/0 long functions, zero TODO/FIXME comments, valid syntax, and exact matches to stored output.
+
+### Issues
+
+#### Critical (Must Fix)
+
+None.
+
+#### Important (Should Fix)
+
+- `cek/cek.py:52`: initial folder validation sits outside the OSError handler. An inaccessible ancestor or filesystem stat failure raises PermissionError/OSError from `Path.is_dir()`, bypassing the friendly stderr diagnostic and returning through an uncaught traceback. This breaks the explicit path/I/O-error contract even though the eventual process status is nonzero. Move folder validation into the existing protected block and add a focused regression mocking `Path.is_dir` to raise PermissionError. Focused review reproduction with that mock printed `UNHANDLED path validation: PermissionError [Errno 13] Permission denied: 'restricted/child'`.
+
+#### Minor (Nice to Have)
+
+None.
+
+### Assessment
+
+**Task quality:** Needs fixes.
+
+**Checks and limits:** Read the isolated review-package diff, brief, binding constraints and full implementation report. Read preserved red, invalid-byte-red, green, and suite logs: five initial missing-module errors, the genuine predicate UnicodeDecodeError, five green task tests, and 14 green suite tests; final logs contain no warning noise. No passed suite was rerun. The only additional focused behavior check was the unanswered initial-path PermissionError case. Outside-diff inspections were limited to the named provenance risk (`docs/bahan-uji.md` for Task 2 SHA and the two selected clone sources for AST/tokenize/sample comparison). No git/index/branch mutations or source edits; this report is the sole permitted output.
+
+**Reasoning:** The checker is small, readable and broadly meets the task, with genuine fixtures and independent sample evidence. Initial path validation needs the same I/O boundary already correctly applied to traversal and reads.
+
+
+## Task 6 review perbaikan 1
+
+- **Initial folder validation escapes OSError handling — ADDRESSED.** `cek/cek.py:54–66` now protects `Path.is_dir()` with the shared OSError handler; PermissionError receives the clear stderr diagnostic and return 1. False validation still raises argparse's status-2 SystemExit.
+- **Regression coverage checked:** `tests/test_cek.py:94–101` mocks initial `Path.is_dir()` with PermissionError, asserts return 1, both diagnostic parts, and no traceback.
+- **Recorded evidence checked:** `task-6-fix1-red.txt` shows that exact test failing with uncaught `PermissionError: stat ditolak`; `task-6-fix1-green.txt` shows the same test passing; `task-6-fix1-suite.txt` names all 15 passing tests and matches the report. Evidence agrees with the fix diff.
+- **New Breakage in the Fix Diff:** None. Moving validation retains argparse failure behavior because SystemExit is outside OSError; documentation additions describe the original finding and fix consistently.
+- **Out-of-Scope Observations:** None. Coordinator-appended initial review text was treated as historical review documentation.
+- **Fix round:** All findings addressed, no new Critical/Important breakage.
+- **Checks and limits:** Read the supplied diff once, brief, appended report, exact regression/suite logs, and current changed source lines. No tests rerun; no product/index/branch changes. Only this report was written; no additional risk identified within the scoped delta.
