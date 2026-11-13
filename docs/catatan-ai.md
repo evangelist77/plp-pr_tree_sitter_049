@@ -26,3 +26,22 @@ Pindahkan ringkasan ke `laporan.pdf` saat pengumpulan. Isi berdasarkan pengalama
 - Bukti TDD aktual: prediksi disimpan sebelum parse contoh; tes pertama gagal dengan empat `FileNotFoundError` sebelum fixture dibuat. Tes keluaran/main guard kemudian juga gagal karena `t1.py` belum ada (total lima error pada dua tes). Setelah implementasi, kedua tes lulus.
 - Cara membuktikan: `python scripts/cek_setup.py` mencetak `module` tanpa error; `python -m unittest discover -s tests -p test_tugas_awal.py -v` lulus 2 tes; `python -m unittest discover -s tests -v` juga lulus 2 tes; `python tugas1-3/t1.py > tugas1-3/output/t1.txt` menghasilkan tiga `has_error: False`, klasifikasi anonim `def`, `:`, `(`, `)`, serta `ERROR`/`has_error: True` untuk fungsi tanpa `:`. Tes memastikan string `"José"` utuh saat slice byte didekode UTF-8 dan import skrip tidak mencetak output.
 - Status: kode dan bukti mesin Tugas 1 tersedia; checklist tulisan tangan pengguna masih pending di `tugas1-3/perkiraan.md`. Playground dan pemahaman pribadi pengguna belum diverifikasi. Generate CLI akan dibuktikan pada tugas grammar.
+
+
+## Tugas 2 — penjelajah node
+
+- Permintaan: traversal rekursif node bernama, field, posisi, CLI file bytes, dan uji pada Python nyata minimal 100 baris.
+- Bantuan AI: `jelajah.py`, tiga tes tambahan, output aktual Click, dan dokumentasi sumber/SHA/lisensi di `bahan-uji.md`.
+- Bukti TDD aktual: sebelum implementasi, tiga tes baru gagal dengan `FileNotFoundError` karena `jelajah.py` belum ada, sedangkan dua tes Tugas 1 tetap lulus. Setelah implementasi, `python -m unittest discover -s tests -v` lulus semua lima tes.
+- Verifikasi: output tepat untuk `x = 1`, integer UTF-8 `[1:5]`, CLI berhasil, path hilang menampilkan kesalahan tanpa traceback, import diam. Click `src/click/core.py` 4018 baris menghasilkan 15307 baris output dan `has_error: False`; fungsi baris 62, kelas baris 197, dan field `type` baris 63 dicocokkan dengan sumber dan parser.
+- Kekurangan hasil AI yang benar-benar ditemukan: belum ada kesalahan implementasi yang ditemukan pada pemeriksaan ini; tidak dibuat contoh kesalahan rekaan.
+- Batas: belum ada pemeriksaan Playground oleh pengguna. Bukti tulisan tangan/perbandingan pribadi pengguna tetap pending; AI tidak mengklaimnya selesai. Pengayaan TreeCursor tidak dikerjakan.
+
+## Tugas 3 — query Python
+
+- Permintaan: tiga query wajib untuk fungsi/parameter, pemanggilan print langsung, dan modul import, dengan penjalan CLI dan pembanding fixture.
+- Bantuan AI: `q.py`, tiga pola `.scm`, `contoh/query.py`, empat tes tambahan, output aktual, dan tabel pembanding berdasarkan pembacaan sumber oleh AI. Tabel bukan tulisan tangan pengguna.
+- Bukti TDD: sebelum `q.py` dan query dibuat, suite berisi sembilan tes menghasilkan empat error pada tes T3 karena skrip belum tersedia; lima tes T1–2 tetap lulus. Sesudah implementasi, `.venv/bin/python -m unittest discover -s tests -v` lulus sembilan tes.
+- Verifikasi: fixture menghasilkan `f: 5 parameter`, `kosong: 0 parameter`, satu print langsung pada baris 3, serta modul `os`, `sys`, `pathlib`, `.`, `..paket` pada baris 6–9. Tes tambahan menguji `*` sebagai separator, nama UTF-8, path sumber/pola hilang, pola invalid, pola bukan UTF-8, dan import skrip tanpa output.
+- Kekurangan hasil AI yang benar-benar ditemukan: belum ditemukan kesalahan implementasi pada pemeriksaan ini; tidak mengarang kesalahan untuk memenuhi rubrik. Contoh hitungan `named_child_count` dalam materi tidak cukup untuk `/` dan `*` bernama; implementasi mengecualikannya berdasarkan pohon fixture aktual.
+- Batas: query print bersifat sintaksis dan tidak menyelesaikan binding nama. Fixture hanya diparse, tidak dieksekusi. Docstring sebagai pengayaan tidak dikerjakan; pemeriksaan pribadi pengguna masih terbuka.

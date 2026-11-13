@@ -1,0 +1,13 @@
+$ python tugas1-3/q.py tugas1-3/contoh/query.py tugas1-3/queries/fungsi.scm
+f: 5 parameter
+kosong: 0 parameter
+
+$ python tugas1-3/q.py tugas1-3/contoh/query.py tugas1-3/queries/print.scm
+baris 3: print("ya")
+
+$ python tugas1-3/q.py tugas1-3/contoh/query.py tugas1-3/queries/import.scm
+baris 6: os
+baris 6: sys
+baris 7: pathlib
+baris 8: .
+baris 9: ..paket
