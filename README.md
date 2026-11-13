@@ -22,7 +22,7 @@ Di Windows gunakan WSL sesuai saran materi. Paket Python menggunakan API seri 0.
 ## Struktur dan status
 
 - `tugas1-3/`: Tugas 1 tersedia di `t1.py`, `contoh/`, `perkiraan.md`, dan `output/t1.txt`; Tugas 2–3 belum dikerjakan.
-- `tree-sitter-filter/`: tempat proyek grammar Tugas 4–5; belum diinisialisasi.
+- `tree-sitter-filter/`: grammar Tugas 4 dengan 17 corpus; query highlighting dilengkapi pada Tugas 5.
 - `cek/`: tempat pemeriksa kode Tugas 6; belum diimplementasikan.
 - `docs/catatan-ai.md`: catatan bantuan AI untuk diolah menjadi laporan.
 - `laporan.pdf`: harus dibuat kemudian, maksimal 3 halaman.

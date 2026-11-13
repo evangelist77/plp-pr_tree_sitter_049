@@ -127,3 +127,44 @@ None.
 **Reasoning:** The implementation meets the exact required fixture behavior and keeps the runner small, with correct match pairing, import alias handling, and readable CLI failures. The tests and output artifact give concrete evidence for the required contracts.
 
 **Checks and limits:** Read the supplied brief, binding constraints, full implementer report, and task-only diff once; reviewed the diff against the fixture and literal outputs. No changed-file rereads, broader repository crawl, git commands, edits to product files, or tests were performed. Existing complete nine-test GREEN evidence answers the task's concrete behavior checks, so no additional focused run was warranted. UTF-8 input and syntactic print matching are documented limits; no new merge-blocking risk was found. Prior approved Task 2 work and later tasks were outside this review.
+
+
+### Spec Compliance
+
+- ✅ Spec compliant for the implementation in the uncommitted snapshot against base `012824d`: the grammar exposes the requested nodes/fields, exact precedence, simple literal rules, nonempty `in`, and string-only `contains` (`tree-sitter-filter/grammar.js:6`, `:11`, `:16`, `:20`, `:23`). No unrequested evaluator, literal expansion, dependencies, or language-binding scaffolds appear in the package.
+- ✅ Required files are present: grammar (`tree-sitter-filter/grammar.js:1`), metadata (`tree-sitter-filter/tree-sitter.json:1`), example (`tree-sitter-filter/contoh.filter:1`), explicit corpus (`tree-sitter-filter/test/corpus/dasar.txt:1`), grammar README (`tree-sitter-filter/README.md:3`), and generated sources/headers (`tree-sitter-filter/src/parser.c:1`, `tree-sitter-filter/src/grammar.json:1`, `tree-sitter-filter/src/node-types.json:1`, `tree-sitter-filter/src/tree_sitter/parser.h:1`). Root status update is directly related (`README.md:24`).
+- ⚠️ A diff cannot prove init was run exactly once or historical scaffold removal. The recorded actual init inventory and removal list are at `.superpowers/sdd/2026-11-13-tugas-tree-sitter/task-4-report.md:7` and `:50`; the resulting minimal artifacts and disabled bindings agree with that account (`tree-sitter-filter/tree-sitter.json:30`). Commit/push remain coordinator-owned and are not claimed as completed (`task-4-report.md:972`).
+
+### Strengths
+
+- Exact subtree checks: the precedence fixture is `or(comparison, and(comparison, comparison))` (`tree-sitter-filter/test/corpus/dasar.txt:53`); parentheses yield `and(parenthesized(or(...)), comparison)` (`:80`); `not` wraps only the first comparison before `and` (`:71`). Separate fixtures require left-associated `or` and `and` (`:44`, `:62`), consistent with `prec.left(1)`/`prec.left(2)` and `prec(3)` (`tree-sitter-filter/grammar.js:16`).
+- Required child labels are directly declared, including the anonymous comparison operator (`tree-sitter-filter/grammar.js:12`); generated node types mark these fields required (`tree-sitter-filter/src/node-types.json:84`). The recorded compiled-parser self-check exercises all six operator fields rather than relying on named-tree display (`task-4-report.md:933`, `:951`).
+- `word` selects `identifier`, with a real keyword-prefix regression fixture (`tree-sitter-filter/grammar.js:4`; `tree-sitter-filter/test/corpus/dasar.txt:31`). Three-string `in` explicitly contains exactly three string children under `values: (value_list ...)` (`tree-sitter-filter/test/corpus/dasar.txt:98`). The mandatory first value and string-only contains operand are clear in source (`tree-sitter-filter/grammar.js:21`, `:22`), with explicit MISSING/ERROR fixtures for violations (`tree-sitter-filter/test/corpus/dasar.txt:125`, `:134`, `:143`, `:152`).
+- Literal regexes stay within the requested material scope (`tree-sitter-filter/grammar.js:24`); README documents literal limitations and the need to check recovery errors (`tree-sitter-filter/README.md:17`). Generated grammar JSON mirrors these rules (`tree-sitter-filter/src/grammar.json:1`), and parser declares generated CLI version 0.25.10 (`tree-sitter-filter/src/parser.c:1`).
+
+### Issues
+
+#### Critical (Must Fix)
+
+- None.
+
+#### Important (Should Fix)
+
+- None.
+
+#### Minor (Nice to Have)
+
+- `.superpowers/sdd/2026-11-13-tugas-tree-sitter/task-4-report.md:831`: final parse/CST output includes the missing parser-directory configuration warning (also `:865`). This adds setup noise; it does not invalidate the successful local parse or show a grammar defect. Complete discovery configuration in the already planned Task 5, then record clean output; no need to change the user's configuration during this task.
+- `.superpowers/sdd/2026-11-13-tugas-tree-sitter/task-4-report.md:803`: final corpus output includes a slow-parse-rate warning for the short first fixture; intermediate runs also report it (`:624`, `:694`). This is test-output noise. The evidence shows 17 successful parses and no failures (`:821`), and does not establish a performance regression. Preserve the warning in evidence and assess it only if it recurs under relevant performance validation; do not weaken correctness assertions or rerun passing suites to hide it.
+
+### Checks and Limits
+
+- Read the source, corpus, metadata, and documentation diff in the supplied review package once; inspected generated grammar/node schema and parser metadata for agreement with source. Generated parse tables and bundled standard headers were not exhaustively audited, as authorized by the review scope.
+- Read recorded incremental RED/GREEN evidence and final generate/test/parse/CST, Python, and compiled-parser field-check results (`task-4-report.md:55`, `:790`, `:798`, `:827`, `:861`, `:911`, `:933`). Final corpus reports 17/17; existing Python suite reports nine passing tests (`:821`, `:926`). These are implementer execution records, not a claim that the reviewer independently reran them.
+- No new tests or suite reruns: source and existing results left no concrete unanswered behavioral doubt requiring execution. No product, index, branch, or HEAD mutations; only this requested review report was written. No subagents dispatched.
+
+### Assessment
+
+**Task quality:** Approved
+
+**Reasoning:** The compact grammar and explicit corpus meet the requested interface and grouping rules; generated metadata and recorded runtime checks agree. The two observed warnings are nonblocking output/setup issues, with no demonstrated parsing or performance defect.

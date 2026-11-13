@@ -1,0 +1,153 @@
+==================
+Perbandingan string
+==================
+status = "open"
+
+---
+
+(query (comparison (identifier) (string)))
+
+==================
+Perbandingan angka
+==================
+priority >= 2.5
+
+---
+
+(query (comparison (identifier) (number)))
+
+==================
+Perbandingan boolean
+==================
+archived != false
+
+---
+
+(query (comparison (identifier) (boolean)))
+
+==================
+Or dan awalan keyword identifier
+==================
+android = true or origin = false
+
+---
+
+(query (or_expression (comparison (identifier) (boolean)) (comparison (identifier) (boolean))))
+
+==================
+Or asosiatif kiri
+==================
+a = 1 or b = 2 or c = 3
+
+---
+
+(query (or_expression (or_expression (comparison (identifier) (number)) (comparison (identifier) (number))) (comparison (identifier) (number))))
+
+==================
+And mengikat lebih kuat dari or
+==================
+a = 1 or b = 2 and c = 3
+
+---
+
+(query (or_expression (comparison (identifier) (number)) (and_expression (comparison (identifier) (number)) (comparison (identifier) (number)))))
+
+==================
+And asosiatif kiri
+==================
+a = 1 and b = 2 and c = 3
+
+---
+
+(query (and_expression (and_expression (comparison (identifier) (number)) (comparison (identifier) (number))) (comparison (identifier) (number))))
+
+==================
+Not mengikat lebih kuat dari and
+==================
+not a = 1 and b = 2
+
+---
+
+(query (and_expression (not_expression (comparison (identifier) (number))) (comparison (identifier) (number))))
+
+==================
+Kurung mengubah prioritas
+==================
+(a = 1 or b = 2) and c = 3
+
+---
+
+(query (and_expression (parenthesized (or_expression (comparison (identifier) (number)) (comparison (identifier) (number)))) (comparison (identifier) (number))))
+
+==================
+Label peran child dan identifier bertitik
+==================
+not customer.city = "Jakarta" or a > 1 and b < 2
+
+---
+
+(query (or_expression left: (not_expression operand: (comparison field: (identifier) value: (string))) right: (and_expression left: (comparison field: (identifier) value: (number)) right: (comparison field: (identifier) value: (number)))))
+
+==================
+In tiga string
+==================
+status in ("open", "pending", "closed")
+
+---
+
+(query (in_expression field: (identifier) values: (value_list (string) (string) (string))))
+
+==================
+In berbagai tipe nilai
+==================
+priority in (1, 2.5, true, false, "high")
+
+---
+
+(query (in_expression field: (identifier) values: (value_list (number) (number) (boolean) (boolean) (string))))
+
+==================
+Contains string
+==================
+title contains "invoice"
+
+---
+
+(query (contains_expression field: (identifier) value: (string)))
+
+==================
+In menolak daftar kosong
+==================
+status in ()
+
+---
+
+(query (in_expression field: (identifier) values: (value_list (boolean (MISSING "true")))))
+
+==================
+Perbandingan tanpa nilai
+==================
+a =
+
+---
+
+(query (comparison field: (identifier) value: (MISSING string)))
+
+==================
+Contains menolak angka
+==================
+title contains 123
+
+---
+
+(ERROR (identifier) (number))
+
+==================
+Contains menolak boolean
+==================
+title contains true
+
+---
+
+(ERROR (identifier) (identifier))
+
