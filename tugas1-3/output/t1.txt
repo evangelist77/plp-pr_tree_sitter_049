@@ -1,0 +1,30 @@
+=== fungsi.py ===
+(module (function_definition name: (identifier) parameters: (parameters (identifier)) body: (block (return_statement (identifier)))))
+has_error: False
+Perbandingan dengan perkiraan AI: Sesuai: function_definition, parameters, block, return_statement.
+children fungsi:
+def anonim
+identifier bernama
+parameters bernama
+: anonim
+block bernama
+children parameters:
+( anonim
+identifier bernama
+) anonim
+named_children fungsi: ['identifier', 'parameters', 'block']
+
+=== kondisi.py ===
+(module (if_statement condition: (identifier) consequence: (block (expression_statement (call function: (identifier) arguments: (argument_list (string (string_start) (string_content) (string_end)))))) alternative: (else_clause body: (block (expression_statement (call function: (identifier) arguments: (argument_list (string (string_start) (string_content) (string_end)))))))))
+has_error: False
+Perbandingan dengan perkiraan AI: Struktur if/else sesuai; prediksi (string) belum memuat string_start, string_content, string_end.
+
+=== kelas.py ===
+(module (class_definition name: (identifier) body: (block (function_definition name: (identifier) parameters: (parameters (identifier) (identifier)) body: (block (return_statement (identifier)))))))
+has_error: False
+Perbandingan dengan perkiraan AI: Sesuai: class_definition berisi satu function_definition di block.
+
+=== rusak.py (kehilangan ':') ===
+(module (ERROR (identifier) (parameters (identifier)) (identifier)))
+has_error: True
+Perkiraan ERROR/MISSING: periksa penanda pemulihan pada pohon di atas.
