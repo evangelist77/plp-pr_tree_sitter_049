@@ -316,3 +316,113 @@ Batas penutupan: pelaksana tidak memberi nilai, mengklaim demo/pemahaman penggun
 **Reasoning:** The seven-file delta supplies the required reproduction guide and factual evidence map with minimal scope. It preserves prior reviews and expressly leaves unmet AI-note, human-evidence, document-format, and integration requirements open.
 
 **Checks and limits:** Read the supplied complete diff once; obtained line references by parsing its hunk coordinates rather than rereading changed files. Read the task brief, binding constraints, and full Task 7 command transcript. For the named risks of fabricated AI history and inaccurate rubric weights, checked only the original assignment's relevant requirements, T4 recovery-history passage, T5 discovery report, and T5 independent screenshot review. The transcript records 15 passing Python tests, 17 passing corpus cases, setup/T1–3/parse/query/highlight/fixture/Click exit-0 results, byte comparisons, and a two-file independent AST/tokenize check; no unresolved behavior doubt justified rerunning those commands. No suite, browser, clean-room install, network clone, Git command, source/index/HEAD/branch mutation, or subagent was used; only this permitted local review report was written. Remaining submission risks are the explicitly pending evidence, DOCX/PDF work, and coordinator commit/push.
+
+
+## Task 8 review dokumen eksternal
+
+# Task 8 independent artifact review
+
+## Spec compliance
+
+**✅ Spec compliant.** The external artifact package supplies the requested report and proposal, with no missing Task 8 content or unauthorized project implementation found. Artifact quality: **Approved**, with one nonblocking test-output observation below.
+
+- `laporan.docx`, rendered pages 1–3: all six required tasks summarized; genuine tree, traversal/query, corpus/highlight, and CLI screenshots present. Every screenshot is readable at original page-image detail. Excerpts are labeled; captions and page 3 explain their browser presentation rather than claiming a terminal session or student activity.
+- `laporan.docx`, page 1 and `proposal-draf.docx`, page 1: Name/NIM/Class remain blank and clearly fillable. Report page 3 explicitly leaves handwriting, personal comparisons, Playground, understanding/demo, PDF export, and manual document push to the student. It also discloses the T2/T3 AI-error rubric gap; no fabricated mistakes or student work found.
+- `proposal-draf.docx`, page 1: all nine elements present: specific title; developer/reviewer problem; deterministic repeatability and model-call cost reasoning; JavaScript/Node.js/Express with tree-sitter-javascript; positive and string/comment/logger.info negative examples; two syntactic query patterns; illustrative terminal path/1-based line/rule output; public Express repository and full pinned SHA with review of 20 findings or all if fewer; five meetings plus shadowed-console false-positive risk. Evaluation is explicitly future work. Computed access is explicitly outside initial scope.
+- `QA/proposal-query-check.txt`, lines 1–6 and `scripts/verify-js.py`, lines 4–20: the exact query shown on proposal page 1 has five recorded successful snippet cases, including both detections, string/comment exclusions, logger.info exclusion, and documented shadowed-console detection. Assertions check actual captures and parse validity; no project tool was implemented.
+- `QA/evidence-commands.json`, lines 88–97 and `QA/express-sha.txt`, line 1: recorded successful `git ls-remote` output agrees with proposal SHA `43fca52d28a422c8be48fd489cbd4f2d6152bab6`. Proposal states when it was observed and requires later checkout of that SHA, without claiming completed repository evaluation.
+
+**⚠️ Scope boundary:** the external before/after package cannot independently prove repository/index/branch nonmutation. The implementer reports an empty repository status and unchanged HEAD; coordinator should retain its own integration/state checks. This reviewer ran no git commands and made no product, artifact, index, or branch edits.
+
+## Strengths and factual checks
+
+- Report page 1's 4018-line source, 15307-line traversal and no-parse-error claims match `docs/bahan-uji.md:14`, `:20`, `:47`; page 3's 136 reports, seed 20261113, 91 candidates, and chosen files match `cek/verifikasi-manual.md:12`, `:24`, `:82`. These named focused reads address the concrete risk of unsupported carried-over T2/T6 claims.
+- Report page 2's 38 captures and category counts match `.superpowers/sdd/2026-11-13-tugas-tree-sitter/task-7-report.md:276`; the two boolean captures are named `constant.builtin` in query output and described semantically as boolean in the report. Report page 3's AI corrections and open rubric gaps match `docs/catatan-ai.md` sections T1–T6 and final status. These focused evidence reads address attribution and count accuracy without rescanning source or rerunning tests.
+- `QA/evidence-commands.json:9`, `:19`, `:30`, `:41`, `:52`, `:61`, `:71`, `:85`: recorded outputs substantiate T1, traversal, all three Python queries, 17 successful corpus cases, four CLI fixture findings, and 15 passing Python tests. Page 1/2/3 screenshots agree with those outputs.
+- Independently read SHA256 hashes match package: `laporan.docx` = `f2672369d942bb372b0d127d51a69ea5f0171d62e568c22df19723a8df0765dc`; `proposal-draf.docx` = `2ad84490040b8db818f7527c748c0b5f3c087b24abf4406e58aa8dfec6539986`; preexisting `bukti/tugas-5-highlight-20261113-102832.png` = `05e19aa068a1eb34fba9020a36dfc142854b7245e601fc30542e70a2f5a47870`. Existing user screenshot remains preserved.
+
+## Issues
+
+### Critical
+
+None found.
+
+### Important
+
+None found.
+
+### Minor
+
+1. `QA/evidence-commands.json:61` and `task-8-report.md:120`: the corpus run emits `Warning: Slow parse rate (166.955 bytes/ms)` for its first case. This is non-pristine validation output, although all 17 cases pass and the full log preserves the warning. Report page 2 Figure 3 is accurately labeled an ending excerpt, so omitting the first case there is not misleading. If making a performance claim later, investigate the slow-rate warning first; no document fix or test rerun is needed for the current functional claims.
+
+## Visual review and assessment
+
+Viewed all four final page PNGs directly through `view_image` with original detail: `QA/laporan-final/page-1.png`, `page-2.png`, `page-3.png`, and `QA/proposal-final/page-1.png`. Confirmed exactly three report pages and one proposal page in the supplied final render set. All four have readable type, intact titles/headings, adequate margins, legible screenshots/code, and no clipping, overflow, overlap, missing glyphs, or unwanted title rule. Body and captions stay with their subject. No additional rendering was performed.
+
+**Task quality: Approved.** Evidence and limitations are carefully attributed, the report fits its page budget without losing readable core evidence, and the one-page proposal is concrete and technically checked. Approval concerns the requested DOCX drafts; it does not certify PDF submission or completion of the explicitly open student work.
+
+Checks deliberately skipped: no repeated tests, regeneration, full-repository review, clean-room installation, cross-platform Word rendering, or renewed remote lookup. Known risks remain the disclosed T2/T3 rubric gap, human work and final PDF/manual submission, plus syntactic console shadowing/computed-access limits.
+
+
+## Review akhir seluruh branch
+
+# Final whole-branch review
+
+What this change does: Implements the six required Tree-sitter exercises, their regression tests, saved outputs, and reproducible instructions. The external report/proposal are separately reviewed drafts; the repository clearly distinguishes completed machine work from remaining student and submission work.
+
+Reviewed range: `97ea5354c001b3a137538b65dfe057b37d63986b..06f743f34dea1d78b353712687ff8d0053d2c736`, six commits, 45 files. Review date: 13 November 2026. Assumed load: one student running local CLI exercises on small/ordinary Python repositories, including the pinned 91-file Click clone. Applied the code-reviewer checklist and Ponytail concrete-case calibration.
+
+## Strengths
+
+- `tugas1-3/jelajah.py:9` retains original child indexes when retrieving fields, then filters anonymous nodes. `tests/test_tugas_awal.py:84` verifies exact indentation/field output and the UTF-8 byte-column distinction. The saved Click samples at output lines 329–337 and 942–947 agree with source lines 62–63 and 197.
+- `tugas1-3/q.py:14` pairs function captures with `matches`, excludes separators/comments from parameter counts, and hides predicate-only captures. The three query files distinguish direct print calls from attributes/strings and original import modules from aliases. Tests check observable results, empty parameter lists, relative imports, UTF-8 names, invalid patterns, missing files, and silent imports.
+- `tree-sitter-filter/grammar.js:11` expresses the requested fields and precedence directly without an extra evaluator or unnecessary abstraction. All 17 explicit corpus cases include malformed recovery, mixed value lists, keyword prefixes, associativity, and precedence. The generated grammar/node metadata agrees with these rules, fields, and precedence values.
+- `cek/cek.py:26` searches comment nodes rather than raw source, includes method/nested functions, uses the specified inclusive function span, and reports the first ERROR/MISSING recovery node. `cek/cek.py:54` now includes folder validation inside I/O handling. `tests/test_cek.py:94` protects the previously found PermissionError bug; boundary, traversal exclusion, ordering, invalid-byte, and recovery tests cover meaningful failures.
+- `README.md:29`, `docs/bahan-uji.md:8`, and `cek/verifikasi-manual.md:14` provide explicit working directories, versions, pinned external source, deterministic sampling, and independently derived AST/tokenize comparisons. Historical test counts, AI source inspection, genuine AI mistakes, and unfinished student evidence are not conflated.
+- T5 query and HTML cover all six categories with six colors, and saved outputs agree with T7 reproduction artifacts. T8's independent reviewer approved all four rendered pages and cross-checked artifact claims; its report has been appended as documentation bookkeeping without a product-code delta.
+
+## Issues
+
+### Critical — must fix
+
+None found.
+
+### Important — should fix
+
+No new implementation or integration defect found in this review. The already disclosed submission gaps remain real: `docs/catatan-ai.md:68` records missing per-task AI-error evidence for T2/T3, and `README.md:84` leaves student evidence and PDF/manual submission open. These prevent claiming the entire graded submission is finished; they do not require inventing a code defect or block this implemented branch.
+
+### Minor — nonblocking observation retained
+
+1. **Intermittent CLI timing warning.** `tree-sitter-filter/README.md:56` records slow-parse-rate warnings, and `.superpowers/sdd/2026-11-13-tugas-tree-sitter/task-8-report.md:120` preserves the later warning. A tiny corpus input can trigger the CLI's rate warning while all 17 parses pass; the T7 transcript also contains a warning-free successful run. There is no demonstrated semantic failure or workload regression. Preserve the observation and investigate with representative measurements only if a performance claim is later needed. No code edit or repeat test run is warranted for current functional claims. Skipping such investigation now leaves performance unbenchmarked, not functionality unverified.
+
+## Recommendations
+
+Retain the current narrow implementation and the complete factual review trail. Handoff should link the approved external DOCX drafts and explicitly list the remaining student evidence, T2/T3 rubric gap, PDF export, and manual document push. Do not close those items merely because code and document layout passed review. No additional code change or test suite run is requested by this review.
+
+## Declined to judge
+
+- Deep/adversarial recursion, very large repositories, concurrency, and live mutation during scans: outside the local practicum workload; no demonstrated failure at the intended load.
+- Arbitrary non-UTF-8 T1–3 sources or unrestricted custom-query output semantics: the plan supplies UTF-8 sources and the three required query contracts. T6's separately required damaged-byte behavior is implemented and tested.
+- Extended DSL escapes, negative numbers, evaluation/SQL generation, optional enrichment, and semantic name binding for print: excluded or explicitly limited by the approved plan and documentation.
+- Original-material ambiguity between body-only length and inclusive function-definition length: the execution ledger explicitly rules for the supplied inclusive formula; implementation, tests, and README consistently follow it.
+- Final handwritten predictions, personal Playground/source checks, demo understanding, identity, PDF delivery, and grading eligibility: these require student evidence; they remain open rather than approved by this code review.
+- Proposal implementation and full repository evaluation: T8 requests a proposal and verified snippet query only; the artifact reviewer checked those boundaries.
+- Cross-platform/clean-room installation and cross-platform Word rendering: not established by the recorded macOS/Python 3.12 verification; no unsupported portability certification is made.
+
+## Assessment
+
+**Ready to merge? Yes, for the implemented branch and reviewed documentation.**
+
+The source, tests, saved evidence, and reproduction instructions agree with the approved implementation scope. No concrete correctness, safety, integration, or required-test blocker remains. This verdict is not certification that the student's full PDF submission or every rubric requirement is complete.
+
+**Verdict: Ship.**
+
+## Checks and limits
+
+Read the package inventory and substantive branch diffs, all new executable Python, all query files, grammar/metadata/corpus, both test modules, unit/root documentation, AI notes, provenance/sampling records, relevant original assignment/plan/constraints, the T7 execution transcript, and T8 review/report cross-evidence. Traced callers with `rg`; the changed helpers are called by their CLIs and tests, with no additional integration caller found. Generated C/header tables and the 15307-line traversal were reviewed through source/provenance, generated field/precedence metadata, successful generation/test records, and named source/output samples rather than an exhaustive table/output read.
+
+Fresh read-only checks confirmed HEAD remains `06f743f34dea1d78b353712687ff8d0053d2c736`; the review package's file/addition/deletion lines equal that exact branch diff (its preamble and context size explain byte differences); generated grammar has precedence 1/2/3 and the required fields; T2, Click scan, captures, and HTML match the T7 reproduction files byte-for-byte. The only observed working-tree delta was the coordinator's 46-line T8 review append to `docs/review-pengerjaan.md`, which was read. No external DOCX/PDF appears in that delta.
+
+`git diff --check` reported only trailing blank lines in generated `tree-sitter-filter/output/highlight.html:41` and corpus `test/corpus/dasar.txt:153`; these have no behavioral effect and are not elevated into style findings. The T7 transcript records 15 passing Python tests, 17 passing corpus cases, 38 captures, four fixture findings, 136 Click findings, successful setup/CLI commands, and independent two-file AST/tokenize comparisons. Those records and source inspection resolved the concrete review questions, so no full suite or redundant artifact-page review was rerun. No fresh clean-room install, network lookup, full Click-source audit, or performance benchmark was attempted.
+
+Only this permitted local report was written. No source, test, artifact, index, HEAD, branch, commit, or remote was mutated by this reviewer; no subagents were dispatched.
